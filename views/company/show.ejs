@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles de la Empresa</title>
+    <link rel="stylesheet" href="/css/company/show.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Detalles de la Empresa</h1>
+
+        <div class="card mt-4">
+            <div class="card-body">
+                  <!-- Lista de detalles de la empresa, cada campo muestra una propiedad de la empresa -->
+                <h3 class="card-title">Información de la Empresa</h3><br>
+                <p><strong>CIF:</strong> <%= company.cif %></p>
+                <p><strong>Nombre:</strong> <%= company.name %></p>
+                <p><strong>Ciudad:</strong> <%= company.city %></p>
+                <p><strong>Persona a Cargo:</strong> <%= company.personInCharge %></p>
+                <p><strong>ID de la Persona a Cargo:</strong> <%= company.personInChargeID %></p>
+                <p><strong>Tipo de Empresa:</strong> <%= company.type %></p>
+                <p><strong>Familia Profesional:</strong> <%= company.family %></p>
+                <p><strong>Dirección:</strong> <%= company.address %></p>
+                <p><strong>Área:</strong> <%= company.area %></p>
+                <p><strong>Código Postal:</strong> <%= company.postalCode %></p>
+                <p><strong>Teléfono:</strong> <%= company.phone %></p>
+                <p><strong>Email:</strong> <%= company.email %></p>
+            </div>
+        </div>
+         <!-- Botones para regresar a la lista de empresas o editar la empresa -->
+        <div class="mt-4">
+            <a href="<%= BaseURLComments %>/company" class="btn btn-secondary">Volver a la lista de empresas</a>
+            <a href="<%= BaseURLComments %>/company/<%= company._id %>/edit" class="btn btn-warning">Editar Empresa</a>
+        </div>
+    </div>
+<!--
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>-->
+</body>
+</html>

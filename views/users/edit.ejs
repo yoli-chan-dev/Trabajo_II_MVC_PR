@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edición Usuario</title>
+    <link rel="stylesheet" href="/css/users/edit.css">
+</head>
+<body>
+
+    <h1 class="titulo-pagina">Editar Usuario</h1>
+    <h2 class="id-usuario">ID: <%= users.idUser %></h2>
+
+     <!-- Formulario para editar la información del usuario -->
+    <form action="<%= BaseURLComments %>/users/users/<%= users.idUser %>?_method=PATCH" method="POST" class="formulario-usuario">
+        
+        <input type="text" placeholder="NIF..." name="NIF" value="<%= users.NIF %>" required class="campo-entrada">
+        <br><br>
+        <input type="text" placeholder="UserName..." name="username" value="<%= users.username %>" required class="campo-entrada">
+        <br><br>
+        <input type="password" placeholder="Password..." name="password" required class="campo-entrada">
+        <br><br>
+        <input type="text" placeholder="First name..." name="firstName" value="<%= users.firstName %>" required class="campo-entrada">
+        <br><br>
+        <input type="text" placeholder="Last name..." name="lastName" value="<%= users.lastName %>" required class="campo-entrada">
+        <br><br>
+        <input type="email" placeholder="Email..." name="email" value="<%= users.email %>" required class="campo-entrada">
+        <br><br>
+        <label for="profile" class="etiqueta">Selecciona tu perfil:</label>
+         <!-- Etiqueta y menú desplegable (select) para elegir el perfil del usuario -->
+        <select name="profile" class="seleccion-perfil">
+             <!-- Iteración sobre los perfiles disponibles para mostrar opciones, y marca como seleccionada la opción actual del usuario -->
+            <% for(p of profile) {%>
+                <% if(p == users.profile) { %>
+                    <option selected value="<%= p %>"><%= p %></option>
+                <% } else { %>
+                    <option value="<%= p %>"><%= p %></option>
+                <% } %>
+            <% } %>
+        </select>
+        <br><br>
+          <!-- Botón para guardar los cambios -->
+        <button class="btn-guardar">Guardar</button> 
+        <!-- Enlace para cancelar la edición y volver a la lista de usuarios -->       
+        <a href="<%= BaseURLComments %>/users/users" class="btn-cancelar">Cancelar</a>
+    </form>   
+</body>
+</html>

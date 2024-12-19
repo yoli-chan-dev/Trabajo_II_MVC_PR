@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edición de Inscripción</title>
+    <link rel="stylesheet" href="/css/inscriptions/edit.css">
+</head>
+<body>
+
+    <div class="contenedor-formulario">
+        <h1>Editar Inscripción</h1>
+        <!-- Muestra el ID de la inscripción en la página -->
+        <h2>ID: <%= inscriptions._id %></h2>
+         <!-- Formulario para editar la inscripción, el método PATCH actualiza la inscripción -->
+        <form action="<%= BaseURLComments %>/inscriptions/inscriptions/<%= inscriptions._id %>?_method=PATCH" method="POST" class="formulario-inscripcion">
+             <!-- Grupo de formulario para seleccionar el ID del usuario -->
+            <div class="grupo-formulario">
+                <label for="idUser">Id del usuario:</label>
+                <select name="idUser" required>
+                    <% let j = 0 %>
+                    <% while (true) { %>
+                        <option value="<%= users[j].username %>"><%= users[j].username %></option>
+                        <% j++ %>
+                        <% if( j >= users.length ){ %>
+                            <% break %>
+                        <% } %>
+                    <% } %>
+                </select>
+            </div>
+              <!-- Grupo de formulario para seleccionar el ID de la empresa -->
+            <div class="grupo-formulario">
+                <label for="idCompany">Id de la empresa:</label>
+                <select name="idCompany" required>
+                    <% let i = 0 %>
+                    <% while (true) { %>
+                        <option value="<%= companys[i].name %>"><%= companys[i].name %></option>
+                        <% i++ %>
+                        <% if( i >= companys.length ){ %>
+                            <% break %>
+                        <% } %>
+                    <% } %>
+                </select>
+            </div>
+
+            <div class="grupo-formulario">
+                <label for="fechaInicio">Fecha Inicio:</label>
+                <input type="date" name="fechaInicio" value="<%= inscriptions.fecIni %>" required><br>
+            </div>
+
+            <div class="grupo-formulario">
+                <label for="fechaFin">Fecha Fin:</label>
+                <input type="date" name="fechaFin" value="<%= inscriptions.fecFin %>" required><br>
+            </div>
+
+            <div class="grupo-formulario">
+                <label for="observaciones">Observaciones:</label>
+                <input type="text" name="observaciones" value="<%= inscriptions.observaciones %>" required><br>
+            </div>
+             <!-- Acciones del formulario, incluyendo el botón de guardar y un enlace para cancelar -->
+            <div class="acciones-formulario">
+                <button type="submit">Guardar</button>
+                <a href="<%= BaseURLComments %>/inscriptions/inscriptions" class="btn-cancelar">Cancelar</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

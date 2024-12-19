@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles de Usuario</title>
+    <link rel="stylesheet" href="/css/users/show.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Detalles del Usuario</h1>
+          <!-- Contenedor donde se encuentran los detalles del usuario -->
+        <div class="user-details">
+            <h2>ID: <span><%= datosUser.idUser %></span></h2>
+            <h2>NIF: <span><%= datosUser.NIF %></span></h2>
+            <h2>Nombre de Usuario: <span><%= datosUser.username %></span></h2>
+            <h2>Contraseña: <span><%= datosUser.password %></span></h2>
+            <p><strong>Nombre:</strong> <%= datosUser.firstName %></p>
+            <p><strong>Apellidos:</strong> <%= datosUser.lastName %></p>
+            <p><strong>Fecha de Creación:</strong> <%= datosUser.createdDate %></p>
+            <p><strong>Fecha de Modificación:</strong> <%= datosUser.modifiedDate %></p>
+            <p><strong>Email:</strong> <%= datosUser.email %></p>
+            <p><strong>Perfil:</strong> <%= datosUser.profile %></p>
+        </div>
+        <!-- Botón para volver al listado de usuarios -->
+        <a class="btn-volver" href="<%= BaseURLComments %>/users/users">Volver al Listado</a>
+    </div>
+
+</body>
+</html>

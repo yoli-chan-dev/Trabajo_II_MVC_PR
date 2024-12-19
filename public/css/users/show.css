@@ -1,0 +1,84 @@
+/* Reset básico para márgenes y rellenos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos para el body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+    padding: 20px;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Título principal */
+h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Estilos para los detalles del usuario */
+.user-details h2 {
+    font-size: 1.5rem;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.user-details p {
+    font-size: 1.1rem;
+    color: #495057;
+    margin-bottom: 10px;
+}
+
+/* Resaltar los valores */
+.user-details span {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Estilo para el enlace de volver */
+.btn-volver {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #6c757d;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.btn-volver:hover {
+    background-color: #5a6268;
+}
+
+@media (max-width: 768px) {
+    /* Adaptaciones para pantallas pequeñas */
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    .user-details h2 {
+        font-size: 1.2rem;
+    }
+
+    .user-details p {
+        font-size: 1rem;
+    }
+}

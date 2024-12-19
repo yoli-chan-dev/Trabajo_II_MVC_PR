@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Usuarios</title>
+    <link rel="stylesheet" href="/css/users/index.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Lista de Usuarios</h1>
+            <nav><!-- Menú de navegación con enlaces a otras secciones -->
+                <hr>
+                    <a href="<%= BaseURLComments %>/company">Compañías</a>
+                    <a href="<%= BaseURLComments %>/users/users">Usuarios</a>
+                    <a href="<%= BaseURLComments %>/inscriptions/inscriptions">Inscripciones</a>
+                <hr>
+        </header>
+         <!-- Botón para crear un nuevo usuario, que redirige a la página de creación de usuarios -->
+        <a href="<%= BaseURLComments %>/users/users/new" class="btn-new">Nuevo Usuario</a>
+
+        <table class="user-table">
+            <thead>
+                <tr> <!-- Tabla que contiene la lista de usuarios -->
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Bucle que recorre todos los usuarios y genera una fila para cada uno -->
+                <% users.forEach(user => { %>
+                    <tr>
+                        <td><%= user.idUser %></td>
+                        <td><%= user.firstName %></td>
+                        <td><%= user.lastName %></td>
+                        <td><%= user.email %></td>        
+                        <td class="actions">
+                             <!-- Enlace para ver los detalles del usuario, usando un ícono de lupa -->
+                            <a href="<%= BaseURLComments %>/users/users/<%= user.idUser %>" class="btn-view">
+                                <img width="32px" src="/imgs/lupa.png" alt="Ver">
+                            </a>
+                            <!-- Enlace para editar los detalles del usuario -->
+                            <a href="<%= BaseURLComments %>/users/users/<%= user.idUser %>/edit" class="btn-edit">
+                                Editar
+                            </a>
+                             <!-- Formulario para eliminar un usuario, con confirmación al hacer clic en el botón -->
+                            <form action="<%= BaseURLComments %>/users/users/<%= user.idUser %>?_method=DELETE" method="POST" class="form-delete">
+                                <button class="btn-delete">Eliminar</button>
+                            </form>
+                        </td>              
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

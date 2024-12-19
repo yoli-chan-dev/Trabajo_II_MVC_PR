@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles de la Inscripción</title>
+    <link rel="stylesheet" href="/css/inscriptions/show.css">
+   
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Detalles de la Inscripción</h1>
+         <!-- Tarjeta que contiene la información de la inscripción -->
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 class="card-title">Información de la Inscripción</h5>
+                <p><strong>Usuario:</strong> <%= inscriptions.idUser %></p>
+                <p><strong>Compañía :</strong> <%= inscriptions.idCompany %></p>
+                <p><strong>Fecha de Inicio:</strong> <%= inscriptions.fecIni %></p>
+                <p><strong>Fecha Final:</strong> <%= inscriptions.fecFin %></p>
+                <p><strong>Observaciones:</strong> <%= inscriptions.observaciones %></p>
+               
+            </div>
+        </div>
+          <!-- Botones para volver a la lista o editar la inscripción -->
+        <div class="mt-4">
+            <a href="<%= BaseURLComments %>/inscriptions/inscriptions" class="btn btn-secondary">Volver a la lista de inscripciones</a>
+            <a href="<%= BaseURLComments %>/inscriptions/inscriptions/<%= inscriptions._id %>/edit" class="btn btn-warning">Editar Inscripción</a>
+        </div>
+    </div>
+</body>
+</html>

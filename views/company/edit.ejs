@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edición de Compañía</title>
+    <link rel="stylesheet" href="/css/company/edit.css">
+</head>
+<body>
+    <h1 class="titulo-pagina">Editar Compañía</h1>
+    <!-- Muestra el ID de la compañía que se está editando -->
+    <h2>ID: <%= company._id %></h2>
+    <br>
+    <form class="formulario-compania" action="<%= BaseURLComments %>/company/<%= company._id %>?_method=PATCH" method="POST">
+         <!-- Campo para el CIF de la compañía -->
+        <label class="etiqueta">CIF:</label>
+        <input class="campo-entrada" type="text" placeholder="CIF..." name="cif" value="<%= company.cif %>" required><br>
+        <!-- Campo para el nombre de la compañía -->
+        <label class="etiqueta">NOMBRE:</label>
+        <input class="campo-entrada" type="text" placeholder="Nombre..." name="name" value="<%= company.name %>" required><br>
+         <!-- Campo para la ciudad donde se encuentra la compañía -->
+        <label class="etiqueta">CIUDAD:</label>
+        <input class="campo-entrada" type="text" placeholder="Ciudad..." name="city" value="<%= company.city %>" required><br>
+         <!-- Campo para la persona encargada de la compañía -->
+        <label class="etiqueta">PERSONA A CARGO:</label>
+        <input class="campo-entrada" type="text" placeholder="Persona a cargo..." name="personInCharge" value="<%= company.personInCharge %>" required><br>
+        <!-- Campo para el ID de la persona encargada -->
+        <label class="etiqueta">ID PERSONA A CARGO:</label>
+        <input class="campo-entrada" type="text" placeholder="ID Persona a cargo..." name="personInChargeID" value="<%= company.personInChargeID %>" required><br>
+        <!-- Campo para el tipo de la compañía -->
+        <label class="etiqueta">TIPO:</label>
+        <input class="campo-entrada" type="text" placeholder="Tipo..." name="type" value="<%= company.type %>" required><br>
+        <!-- Campo para la familia de la compañía (sector o categoría) -->
+        <label class="etiqueta">FAMILIA:</label>
+        <input class="campo-entrada" type="text" placeholder="Familia..." name="family" value="<%= company.family %>" required><br>
+          <!-- Campo para la dirección de la compañía -->
+        <label class="etiqueta">DIRECCIÓN:</label>
+        <input class="campo-entrada" type="text" placeholder="Dirección..." name="address" value="<%= company.address %>" required><br>
+          <!-- Campo para la provincia donde se encuentra la compañía -->
+        <label class="etiqueta">PROVINCIA:</label>
+        <input class="campo-entrada" type="text" placeholder="Provincia..." name="area" value="<%= company.area %>" required><br>
+         <!-- Campo para el código postal de la compañía -->
+        <label class="etiqueta">CÓDIGO POSTAL:</label>
+        <input class="campo-entrada" type="number" placeholder="Código postal..." name="postalCode" value="<%= company.postalCode %>" required><br>
+        <!-- Campo para el teléfono de contacto de la compañía -->
+        <label class="etiqueta">TELÉFONO:</label>
+        <input class="campo-entrada" type="number" placeholder="Teléfono..." name="phone" value="<%= company.phone %>" required><br>
+         <!-- Campo para el email de la compañía -->
+        <label class="etiqueta">EMAIL:</label>
+        <input class="campo-entrada" type="text" placeholder="Email..." name="email" value="<%= company.email %>" required><br>
+          <!-- Campo para la fecha de última modificación de los datos -->
+        <label class="etiqueta">FECHA DE MODIFICACIÓN:</label>
+        <input class="campo-entrada" type="date" name="modifiedDate" value="<%= company.modifiedDate %>"><br>
+        <!-- Botón para guardar los cambios -->
+        <button class="btn-guardar">Guardar</button>
+          <!-- Enlace para cancelar la edición y volver a la lista de compañías -->
+        <a class="btn-cancelar" href="<%= BaseURLComments %>/company">Cancelar</a>
+    </form>
+</body>
+</html>

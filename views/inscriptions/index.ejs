@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= tituloEJS %></title>
+    <base href="/">
+    <link rel="stylesheet" href="/css/inscriptions/index.css">
+</head>
+<body>
+
+    <h1>Listado de Inscripciones</h1>
+    <hr> <!-- Barra de navegación para enlaces a otras secciones -->
+    <div class="nav-links">
+        <a href="<%= BaseURLComments %>/company">Compañías</a>
+        <a href="<%= BaseURLComments %>/users/users">Usuarios</a>
+        <a href="<%= BaseURLComments %>/inscriptions/inscriptions">Inscripciones</a>
+    </div>
+    <hr>
+    <!-- Enlace para agregar una nueva inscripción -->
+    <a href="<%= BaseURLComments %>/inscriptions/inscriptions/new" class="btn-new">Nueva Inscripción</a>
+    <!-- Contenedor principal para mostrar las inscripciones -->
+    <div class="contenedor">
+        <!-- Muestra los detalles de cada inscripción -->
+        <% for (let i of inscriptions) { %>
+            <div class="caja">
+                <h4>ID Usuario: <%= i.idUser %></h4>
+                <h4>ID Compañía: <%= i.idCompany %></h4>
+                <h4>Fecha Inicio: <%= i.fecIni %></h4>
+                <h4>Fecha Fin: <%= i.fecFin %></h4>
+                <h4>Observaciones: <%= i.observaciones %></h4>
+                <div class="acciones">
+                    <!-- Enlace para editar la inscripción -->
+                    <a href="<%= BaseURLComments %>/inscriptions/inscriptions/<%= i._id %>/edit">Editar</a>
+                    <!-- Formulario para eliminar la inscripción con confirmación antes de enviar -->
+                    <form action="<%= BaseURLComments %>/inscriptions/inscriptions/<%= i._id %>?_method=DELETE" method="POST" style="display:inline;">
+                        <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar esta inscripción?')">Eliminar</button>
+                    </form>
+                </div>
+            </div>
+            <hr>
+        <% } %>
+    </div>
+
+</body>
+</html>

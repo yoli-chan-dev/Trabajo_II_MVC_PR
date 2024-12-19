@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fa;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Estilos de los enlaces */
+a {
+    color: #007BFF;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.btn-new {
+    display: inline-block;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+/* Contenedor principal */
+.contenedor {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 7vw;
+    padding-top: 20px;
+}
+
+.caja {
+    width: 20vw;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.caja:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.caja h1.nombre {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.caja h3 {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Estilo para los botones y formularios */
+button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+    left: 68%;
+    bottom: 1.6vw;
+}
+
+.btn-view, .btn-edit{
+    text-decoration: none;
+    padding: 12px 6px;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+}
+
+.btn-view {
+    background-color: #007bff;
+    padding-left: 6%;
+}
+
+.btn-view:hover {
+    background-color: #0056b3;
+}
+
+.btn-edit {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #ffc107;
+    position: relative;
+    left: 5%;
+}
+
+.btn-edit:hover {
+    background-color: #e0a800;
+}
+
+button:hover {
+    background-color: #c82333;
+}
+
+/* Estilo para los iconos */
+img {
+    width: 32px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+/* Barra de navegación */
+hr {
+    border: 1px solid #ddd;
+    margin: 20px 0;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .contenedor {
+        grid-template-columns: 1fr;
+    }
+}

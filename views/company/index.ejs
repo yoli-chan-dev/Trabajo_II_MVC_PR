@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= tituloEJS %></title>
+    <base href="/">
+    <link rel="stylesheet" href="/css/company/index.css">
+</head>
+<body>
+
+    <h1>Listado de Compañías</h1>
+
+    <hr>
+     <!-- Navegación entre diferentes secciones de la aplicación -->
+    <a href="<%= BaseURLComments %>/company">Compañías</a>
+    <a href="<%= BaseURLComments %>/users/users">Usuarios</a>
+    <a href="<%= BaseURLComments %>/inscriptions/inscriptions">Inscripciones</a>
+    <hr>
+    <!-- Enlace para crear una nueva compañía, con un botón estilizado -->
+    <a href="<%= BaseURLComments %>/company/new" class="btn-new">Nueva Compañía</a>
+    <!-- Contenedor donde se mostrarán las compañías -->
+    <div class="contenedor">
+    <!-- Bucle EJS para iterar sobre el array de compañías -->
+    <% for(let c of company) {%>
+        <div class="caja">
+            <h1 class="nombre">
+                <%= c.name %>
+            </h1>
+            <h3>CIF: <%= c.cif %></h3>
+            <div>
+                 <!-- Enlace para ver más detalles de la compañía -->              
+                <a href="<%= BaseURLComments %>/company/<%= c._id %>" class="btn-view">
+                    <img width="32px" src="../imgs/lupa.png">
+                </a>
+                 <!-- Enlace para editar la compañía -->
+                <a href="<%= BaseURLComments %>/company/<%= c._id %>/edit" class="btn-edit">
+                    Editar
+                </a>
+                 <!-- Formulario para eliminar la compañía con método DELETE -->
+                <form action="<%= BaseURLComments %>/company/<%= c._id %>?_method=DELETE" method="POST">
+                    <button>Eliminar</button>
+                </form>                
+            </div>
+            
+        </div>
+    <% }%>
+    </div>
+</body>
+</html>

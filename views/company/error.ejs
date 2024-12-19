@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <link rel="stylesheet" href="/css/users/error.css">
+</head>
+<body>
+    
+    <div class="error-container">
+        <h1>ERROR</h1>    
+        <!-- Mensaje de error dinámico que se pasa desde el servidor a través de EJS -->
+        <p><i><%= err %></i></p>
+        <!-- Enlace para redirigir al usuario a la página principal -->
+        <a href="<%= BaseURLComments %>/users">Ir a página principal</a>
+        <!-- Enlace para crear una nueva compañía -->
+        <a href="<%= BaseURLComments %>/users/users/new">Crear Compañía</a>
+    </div>
+    
+</body>
+</html>

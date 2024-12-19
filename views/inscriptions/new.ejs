@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva inscripción</title>
+    <link rel="stylesheet" href="/css/inscriptions/new.css">
+</head>
+<body>
+    <h1>Nueva inscripción</h1>
+     <!-- Formulario para crear una nueva inscripción -->
+    <form action="<%= BaseURLComments %>/inscriptions/inscriptions" method="POST">
+          <!-- Selección del usuario -->
+        <label for="idUser">Id del usuario:</label>
+        <select name="idUser">
+            <% let j = 0 %>
+            <% while (true) { %> <!-- Bucle EJS para iterar sobre los usuarios -->
+                <option value="<%= users[j].username %>"><%= users[j].username %></option>
+                <% j++ %>
+                <% if( j >= users.length ){ %> <!-- Termina el bucle cuando se recorren todos los usuarios -->
+                    <% break %>
+                <% } %>
+            <% } %>
+        </select>
+        <br><br>
+         <!-- Selección de la empresa -->
+        <label for="idCompany">Id de la empresa:</label>
+        <select name="idCompany">
+            <% let i = 0 %>
+            <% while (true) { %> <!-- Bucle EJS para iterar sobre las empresas -->
+                <option value="<%= companys[i].name %>"><%= companys[i].name %></option>
+                <% i++ %>
+                <% if( i >= companys.length ){ %>
+                    <% break %>
+                <% } %>
+            <% } %>
+        </select>
+        <br><br>
+
+        <label for="fecIni">Fecha de inicio:</label>
+        <input type="date" id="fecIni" name="fecIni" required>
+        <br><br>
+
+        <label for="fecFin">Fecha de finalización:</label>
+        <input type="date" id="fecFin" name="fecFin">
+        <br><br>
+
+        <label for="observaciones">Observaciones:</label>
+        <textarea id="observaciones" name="observaciones" rows="10" cols="50"></textarea>
+        <br><br>
+         <!-- Botón para enviar el formulario -->
+        <button type="submit">Crear inscripción</button>
+    </form>
+</body>
+</html>
